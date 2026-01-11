@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import {
   ChatIcon,
   DashboardIcon,
@@ -77,7 +77,12 @@ export default function Sidebar() {
           <IconWrapper>
             <LogoutIcon />
           </IconWrapper>
-          <span>تسجيل الخروج</span>
+          <Link
+            to="/"
+            className="flex items-center gap-2 text-red-600 hover:underline"
+          >
+            <span>تسجيل الخروج</span>
+          </Link>
         </button>
       </div>
     </aside>
