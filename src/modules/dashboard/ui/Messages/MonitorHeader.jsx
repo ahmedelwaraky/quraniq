@@ -1,8 +1,7 @@
 // ui/Messages/MonitorHeader.tsx
 import React from "react";
-import type { MonitorHeaderProps } from "../../interface/MonitorInterface/Monitor.types";
 
-export default function MonitorHeader({ groupName, messagesCount }: MonitorHeaderProps) {
+export default function MonitorHeader({ groupName, messagesCount }) {
   return (
     <div className="bg-white border-b border-gray-200 p-5 shadow-sm">
       <div className="flex items-center justify-between max-w-7xl">

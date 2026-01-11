@@ -1,8 +1,7 @@
 import React from 'react';
 import { SearchIcon } from '../../../../components/ui/SvgIcons/SvgIcons';
-import type { SearchBarProps } from '../../interface/GroupInterface/Group.types';
 
-export default function SearchBar({ searchQuery, onSearchChange }: SearchBarProps) {
+export default function SearchBar({ searchQuery, onSearchChange }) {
   return (
     <div className="bg-white rounded-lg border border-gray-200 p-4 shadow-sm">
       <div className="relative">

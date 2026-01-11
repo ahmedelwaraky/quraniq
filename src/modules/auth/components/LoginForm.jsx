@@ -1,6 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GraduationCap, Eye, EyeOff, Mail, Lock } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+
+// الحسابات المتاحة
+const USERS = [
+  {
+    email: "admin@school.com",
+    password: "admin123",
+    role: "admin",
+    name: "مدير النظام",
+  },
+  {
+    email: "superadmin@school.com",
+    password: "super123",
+    role: "superadmin",
+    name: "المدير العام",
+  },
+  {
+    email: "teacher@school.com",
+    password: "teacher123",
+    role: "teacher",
+    name: "المعلم",
+  },
+];
 
 // Schema للتحقق من البيانات
 const loginSchema = {
@@ -23,12 +45,22 @@ export default function LoginForm() {
   const [formData, setFormData] = useState({ email: "", password: "" });
   const [errors, setErrors] = useState({ email: null, password: null });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [loginError, setLoginError] = useState(null);
+
+  // تحميل الحسابات في localStorage عند التحميل
+  useEffect(() => {
+    const storedUsers = JSON.parse(localStorage.getItem("users") || "[]");
+    if (storedUsers.length === 0) {
+      localStorage.setItem("users", JSON.stringify(USERS));
+    }
+  }, []);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
     // Clear error on change
     setErrors((prev) => ({ ...prev, [name]: null }));
+    setLoginError(null);
   };
 
   const handleSubmit = async (e) => {
@@ -46,9 +78,29 @@ export default function LoginForm() {
     // Submit
     setIsSubmitting(true);
     await new Promise((resolve) => setTimeout(resolve, 1000));
-    console.log("Login data:", formData);
-    alert("تم تسجيل الدخول بنجاح!");
-    navigate("/ChatPage");
+
+    // التحقق من الحساب
+    const users = JSON.parse(localStorage.getItem("users") || "[]");
+    const user = users.find(
+      (u) => u.email === formData.email && u.password === formData.password
+    );
+
+    if (!user) {
+      setLoginError("البريد الإلكتروني أو كلمة المرور غير صحيحة");
+      setIsSubmitting(false);
+      return;
+    }
+
+    // حفظ بيانات المستخدم
+    localStorage.setItem("currentUser", JSON.stringify(user));
+
+    // التوجيه حسب الدور
+    if (user.role === "superadmin") {
+      navigate("/dashboard");
+    } else if (user.role === "admin" || user.role === "teacher") {
+      navigate("/ChatPage");
+    }
+
     setIsSubmitting(false);
   };
 
@@ -69,6 +121,13 @@ export default function LoginForm() {
 
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-5">
+        {/* Login Error Message */}
+        {loginError && (
+          <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
+            <p className="text-sm text-red-600 text-right">{loginError}</p>
+          </div>
+        )}
+
         {/* Email Field */}
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2 text-right">
@@ -147,6 +206,24 @@ export default function LoginForm() {
           <strong>ملاحظة:</strong> يتم إرسال التحديثات من قبل الإدارة فقط، إذا
           كان يتعذر إضافة الحساب، تواصل مع الإدارة
         </p>
+      </div>
+
+      {/* Demo Accounts */}
+      <div className="mt-6 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+        <p className="text-xs font-bold text-blue-900 text-center mb-2">
+          حسابات تجريبية:
+        </p>
+        <div className="space-y-2 text-xs text-blue-800">
+          <div className="text-right">
+            <strong>المدير العام:</strong> superadmin@school.com / super123
+          </div>
+          <div className="text-right">
+            <strong>مدير النظام:</strong> admin@school.com / admin123
+          </div>
+          <div className="text-right">
+            <strong>المعلم:</strong> teacher@school.com / teacher123
+          </div>
+        </div>
       </div>
 
       {/* Back to Home */}

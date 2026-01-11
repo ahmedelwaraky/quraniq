@@ -4,14 +4,13 @@ import MonitorSidebar from "../ui/Messages/MonitorSidebar";
 import MessageSearchBar from "../ui/Messages/MessageSearchBar";
 import MonitorHeader from "../ui/Messages/MonitorHeader";
 import MessagesMonitorList from "../ui/Messages/MessagesMonitorList";
-import type { MonitorGroup } from "../interface/MessageInterface/Message.types";
 
 export default function MessagesPage() {
   const [activeGroupId, setActiveGroupId] = useState("1");
   const [searchQuery, setSearchQuery] = useState("");
 
   // Sample Groups Data
-  const groups: MonitorGroup[] = [
+  const groups= [
     {
       id: "1",
       name: "مجموعة الرياضيات",
@@ -35,7 +34,7 @@ export default function MessagesPage() {
   ];
 
   // Sample Messages Data
-  const messagesData: Record<string, Message[]> = {
+  const messagesData= {
     "1": [
       {
         id: "1",
@@ -104,17 +103,17 @@ export default function MessagesPage() {
   );
 
   // Actions Handlers
-  const handleWarn = (messageId: string) => {
+  const handleWarn = (messageId) => {
     console.log("Warning sent for message:", messageId);
     alert("تم إرسال تحذير للمستخدم");
   };
 
-  const handleMute = (messageId: string) => {
+  const handleMute = (messageId) => {
     console.log("User muted for message:", messageId);
     alert("تم كتم المستخدم");
   };
 
-  const handleDelete = (messageId: string) => {
+  const handleDelete = (messageId) => {
     console.log("Message deleted:", messageId);
     alert("تم حذف الرسالة");
   };

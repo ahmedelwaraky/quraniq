@@ -1,8 +1,7 @@
 import React from 'react';
-import type { GroupsListProps } from '../../interface/GroupInterface/Group.types';
 import GroupCard from './GroupCard';
 
-export default function GroupsList({ groups }: GroupsListProps) {
+export default function GroupsList({ groups }) {
   if (groups.length === 0) {
     return (
       <div className="bg-white rounded-lg border border-gray-200 p-12 text-center">

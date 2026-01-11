@@ -1,12 +1,11 @@
 // ui/Messages/MonitorSidebar.tsx
 import React from "react";
-import type { MonitorSidebarProps } from "../../interface/MessageInterface/Message.types";
 
 export default function MonitorSidebar({
   groups,
   activeGroupId,
   onGroupSelect,
-}: MonitorSidebarProps) {
+}) {
   return (
     <div className="bg-white border-l border-gray-200 w-80 flex flex-col">
       {/* Header - Fixed */}

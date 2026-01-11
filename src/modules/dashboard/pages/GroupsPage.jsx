@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import type { Group } from '../interface/GroupInterface/Group.types';
 import SearchBar from '../ui/Groups/SearchBar';
 import GroupsList from '../ui/Groups/GroupsList';
 
@@ -7,7 +6,7 @@ export default function GroupsPage() {
   const [searchQuery, setSearchQuery] = useState("");
 
   // Sample Data
-  const groupsData: Group[] = [
+  const groupsData = [
     {
       id: "1",
       name: "مجموعة الرياضيات - المستوى الأول",

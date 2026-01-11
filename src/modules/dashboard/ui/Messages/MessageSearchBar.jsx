@@ -1,8 +1,7 @@
 // ui/Messages/MessageSearchBar.tsx
 import React from "react";
-import type { MessageSearchBarProps } from "../../interface/MonitorInterface/Monitor.types";
 
-export default function MessageSearchBar({ searchQuery, onSearchChange }: MessageSearchBarProps) {
+export default function MessageSearchBar({ searchQuery, onSearchChange }) {
   return (
     <div className="bg-white border-b border-gray-200 p-4">
       <div className="relative max-w-2xl">

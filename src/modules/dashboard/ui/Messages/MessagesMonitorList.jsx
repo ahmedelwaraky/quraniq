@@ -1,14 +1,13 @@
 // ui/Messages/MessagesMonitorList.tsx
 import React from "react";
 import MessageCard from "./MessageCard";
-import type { MessagesMonitorListProps } from "../../interface/MonitorInterface/Monitor.types";
 
 export default function MessagesMonitorList({
   messages,
   onWarn,
   onMute,
   onDelete,
-}: MessagesMonitorListProps) {
+}) {
   if (messages.length === 0) {
     return (
       <div className="flex items-center justify-center h-full">

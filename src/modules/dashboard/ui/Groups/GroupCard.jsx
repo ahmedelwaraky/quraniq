@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { MoreVerticalIcon, TeacherIcon, UsersIcon } from '../../../../components/ui/SvgIcons/SvgIcons';
-import type { GroupCardProps } from '../../interface/GroupInterface/Group.types';
 
-export default function GroupCard({ group }: GroupCardProps) {
+export default function GroupCard({ group }) {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
