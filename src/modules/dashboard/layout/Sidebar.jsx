@@ -24,7 +24,7 @@ export default function Sidebar() {
 
   return (
     <aside
-      className="w-64 bg-white border-l border-gray-200 min-h-screen sticky top-0"
+      className="w-64 bg-white border-l border-gray-200 h-screen sticky top-0 flex flex-col"
       dir="rtl"
     >
       {/* Logo */}

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 
 /* ===== Icons (Inline SVG) ===== */
 
@@ -19,6 +20,23 @@ const BellIcon = ({ className = "" }) => (
 
 export default function Header({ user }) {
   const [showNotifications, setShowNotifications] = useState(false);
+  const location = useLocation();
+
+  // تحديد عنوان الصفحة حسب الـ route
+  const getPageTitle = () => {
+    const path = location.pathname.split('/').pop();
+    
+    const pageTitles = {
+      'stats': 'الإحصائيات',
+      'groups': 'إدارة الجروبات',
+      'messages': 'مراقبة الشات',
+      'accounts': 'إدارة الحسابات',
+      'pinned-messages': 'الرسائل المثبتة',
+      'operations': 'سجل العمليات',
+    };
+
+    return pageTitles[path] || 'لوحة التحكم';
+  };
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-40">
@@ -29,7 +47,7 @@ export default function Header({ user }) {
           <button className="text-gray-400 hover:text-gray-600">
             <ChevronRightIcon className="w-5 h-5" />
           </button>
-          <h1 className="text-xl font-bold text-gray-900">الإحصائيات</h1>
+          <h1 className="text-xl font-bold text-gray-900">{getPageTitle()}</h1>
         </div>
 
         {/* User Actions */}
