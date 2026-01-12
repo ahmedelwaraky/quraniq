@@ -8,9 +8,9 @@ import DashboardLayout from "./modules/dashboard/pages/DashboardLayout";
 import StatsPage from "./modules/dashboard/pages/StatsPage";
 import GroupsPage from "./modules/dashboard/pages/GroupsPage";
 import MessagesPage from "./modules/dashboard/pages/MessagesPage";
-import EmailsPage from "./modules/dashboard/pages/EmailsPage";
 import OperationsPage from "./modules/dashboard/pages/OperationsPage";
 import AccountsPage from "./modules/dashboard/pages/AccountsPage";
+import PinnedMessagesPage from "./modules/dashboard/pages/PinnedMessagesPage";
 
 export default function App() {
   return (
@@ -28,7 +28,7 @@ export default function App() {
           <Route path="groups" element={<GroupsPage />} />
           <Route path="messages" element={<MessagesPage />} />
           <Route path="accounts" element={<AccountsPage />} />
-          <Route path="emails" element={<EmailsPage />} />
+          <Route path="pinned-messages" element={<PinnedMessagesPage />} />
           <Route path="operations" element={<OperationsPage />} />
         </Route>
 

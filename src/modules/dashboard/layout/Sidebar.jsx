@@ -18,8 +18,8 @@ export default function Sidebar() {
     { to: "groups", label: "إدارة الجروبات", icon: UsersIcon },
     { to: "messages", label: "مراقبة الشات", icon: ChatIcon },
     { to: "accounts", label: "إدارة الحسابات", icon: UserCogIcon },
-    { to: "emails", label: "الرسائل المتقدمة", icon: MailIcon },
-    { to: "operations", label: "سجل العمليات", icon: ListIcon },
+    { to: "pinned-messages", label: "الرسائل المثبته", icon: MailIcon },
+    // { to: "operations", label: "سجل العمليات", icon: ListIcon },
   ];
 
   return (
