@@ -1,3 +1,4 @@
+import React from "react";
 import {
   BookOpen,
   Clock,
@@ -6,110 +7,134 @@ import {
   Users,
   Video,
 } from "lucide-react";
-import React from "react";
 
 export default function FeaturesSection() {
+  const features = [
+    {
+      id: 1,
+      icon: Video,
+      title: "Live Learning",
+      description: "Interactive live lessons with teachers in real-time",
+      bgColor: "#008076",
+      delay: "0.3s",
+    },
+    {
+      id: 2,
+      icon: MessageCircle,
+      title: "Instant Communication",
+      description: "Talk to your teacher anytime and get quick answers",
+      bgColor: "#008076",
+      delay: "0.4s",
+    },
+    {
+      id: 3,
+      icon: Users,
+      title: "Study Groups",
+      description: "Join study groups and learn with your peers interactively",
+      bgColor: "#008076",
+      delay: "0.5s",
+    },
+    {
+      id: 4,
+      icon: BookOpen,
+      title: "Organized Content",
+      description:
+        "Curricula and educational resources organized for easy access",
+      bgColor: "#008076",
+      delay: "0.6s",
+    },
+    {
+      id: 5,
+      icon: Shield,
+      title: "Safe Environment",
+      description:
+        "A safe and monitored platform to ensure an ideal learning experience",
+      bgColor: "#008076",
+      delay: "0.7s",
+    },
+    {
+      id: 6,
+      icon: Clock,
+      title: "Time Flexibility",
+      description: "Learn at the time that suits you with a flexible schedule",
+      bgColor: "#008076",
+      delay: "0.8s",
+    },
+  ];
+
   return (
     <section
-      className="bg-gradient-to-b from-slate-900 via-teal-900 to-slate-900 py-20 relative overflow-hidden"
-      dir="rtl"
+      id="features"
+      className="py-12 sm:py-16 md:py-20 relative overflow-hidden"
+      style={{
+        background: "#d0b284e1",
+      }}
     >
       {/* Animated Background Elements */}
-      <div className="absolute top-0 left-1/4 w-96 h-96 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
-      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
-      
+      <div className="absolute top-0 left-1/4 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-teal-500/10 rounded-full blur-3xl animate-pulse"></div>
+      <div
+        className="absolute bottom-0 right-1/4 w-48 h-48 sm:w-72 sm:h-72 md:w-96 md:h-96 bg-amber-500/10 rounded-full blur-3xl animate-pulse"
+        style={{ animationDelay: "1s" }}
+      ></div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center mb-4 animate-fade-in">
-          <span className="inline-block bg-teal-500/20 text-teal-300 px-4 py-1.5 rounded-full text-sm font-medium border border-teal-500/30 hover:bg-teal-500/30 transition-all">
-            المميزات
+        <div className="text-center mb-3 sm:mb-4 animate-fade-in">
+          <span 
+            className="inline-block text-white px-3 sm:px-4 py-1 sm:py-1.5 rounded-full text-xs sm:text-sm font-medium transition-all"
+            style={{ backgroundColor: '#008076' }}
+          >
+            Features
           </span>
         </div>
 
-        <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4 animate-fade-in" style={{ animationDelay: '0.1s' }}>
-          كل ما تحتاجه للتعلم بفعالية
+        <h2
+          className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-3 sm:mb-4 animate-fade-in px-4"
+          style={{ animationDelay: "0.1s", color: '#008076' }}
+        >
+          Everything You Need to Learn Effectively
         </h2>
 
-        <p className="text-teal-100/70 text-center text-lg max-w-3xl mx-auto mb-16 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-          نوفر لك مجموعة شاملة من الأدوات والمميزات التي تجعل تجربة التعلم ممتعة
-          وفعالة ومُثمرة.
+        <p
+          className="text-center text-sm sm:text-base md:text-lg max-w-3xl mx-auto mb-10 sm:mb-12 md:mb-16 animate-fade-in px-4 leading-relaxed"
+          style={{ animationDelay: "0.2s", color: '#008076' }}
+        >
+          We provide you with a comprehensive set of tools and features that
+          make the learning experience enjoyable, effective, and fruitful.
         </p>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          <div className="bg-slate-800/40 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:shadow-teal-500/30 transition-all duration-500 hover:-translate-y-2 border border-teal-500/20 hover:border-teal-500/40 animate-slide-up group" style={{ animationDelay: '0.3s' }}>
-            <div className="bg-teal-500/20 w-14 h-14 rounded-xl flex items-center justify-center mb-6 ml-auto border border-teal-500/30 group-hover:bg-teal-500/30 group-hover:scale-110 transition-all duration-300">
-              <Video className="w-7 h-7 text-teal-400 group-hover:text-teal-300" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-3 text-right">
-              تعليم مباشر
-            </h3>
-            <p className="text-teal-100/60 text-right leading-relaxed">
-              دروس تفاعلية مباشرة مع المدرسين في الوقت الحقيقي
-            </p>
-          </div>
-
-          <div className="bg-slate-800/40 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:shadow-emerald-500/30 transition-all duration-500 hover:-translate-y-2 border border-teal-500/20 hover:border-emerald-500/40 animate-slide-up group" style={{ animationDelay: '0.4s' }}>
-            <div className="bg-emerald-500/20 w-14 h-14 rounded-xl flex items-center justify-center mb-6 ml-auto border border-emerald-500/30 group-hover:bg-emerald-500/30 group-hover:scale-110 transition-all duration-300">
-              <MessageCircle className="w-7 h-7 text-emerald-400 group-hover:text-emerald-300" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-3 text-right">
-              تواصل فوري
-            </h3>
-            <p className="text-teal-100/60 text-right leading-relaxed">
-              تحدث مع مدرسك في أي وقت واحصل على إجابات سريعة
-            </p>
-          </div>
-
-          <div className="bg-slate-800/40 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:shadow-cyan-500/30 transition-all duration-500 hover:-translate-y-2 border border-teal-500/20 hover:border-cyan-500/40 animate-slide-up group" style={{ animationDelay: '0.5s' }}>
-            <div className="bg-cyan-500/20 w-14 h-14 rounded-xl flex items-center justify-center mb-6 ml-auto border border-cyan-500/30 group-hover:bg-cyan-500/30 group-hover:scale-110 transition-all duration-300">
-              <Users className="w-7 h-7 text-cyan-400 group-hover:text-cyan-300" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-3 text-right">
-              مجموعات دراسية
-            </h3>
-            <p className="text-teal-100/60 text-right leading-relaxed">
-              انضم لمجموعات دراسية وتعلّم مع زملائك بشكل تفاعلي
-            </p>
-          </div>
-
-          <div className="bg-slate-800/40 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:shadow-teal-500/30 transition-all duration-500 hover:-translate-y-2 border border-teal-500/20 hover:border-teal-500/40 animate-slide-up group" style={{ animationDelay: '0.6s' }}>
-            <div className="bg-teal-500/20 w-14 h-14 rounded-xl flex items-center justify-center mb-6 ml-auto border border-teal-500/30 group-hover:bg-teal-500/30 group-hover:scale-110 transition-all duration-300">
-              <BookOpen className="w-7 h-7 text-teal-400 group-hover:text-teal-300" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-3 text-right">
-              محتوى منظم
-            </h3>
-            <p className="text-teal-100/60 text-right leading-relaxed">
-              مناهج وموارد تعليمية مرتبة ومنظمة لسهولة الوصول
-            </p>
-          </div>
-
-          <div className="bg-slate-800/40 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:shadow-violet-500/30 transition-all duration-500 hover:-translate-y-2 border border-teal-500/20 hover:border-violet-500/40 animate-slide-up group" style={{ animationDelay: '0.7s' }}>
-            <div className="bg-violet-500/20 w-14 h-14 rounded-xl flex items-center justify-center mb-6 ml-auto border border-violet-500/30 group-hover:bg-violet-500/30 group-hover:scale-110 transition-all duration-300">
-              <Shield className="w-7 h-7 text-violet-400 group-hover:text-violet-300" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-3 text-right">
-              بيئة آمنة
-            </h3>
-            <p className="text-teal-100/60 text-right leading-relaxed">
-              منصة آمنة ومراقبة لضمان تجربة تعليمية مثالية
-            </p>
-          </div>
-
-          <div className="bg-slate-800/40 backdrop-blur-sm rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:shadow-emerald-500/30 transition-all duration-500 hover:-translate-y-2 border border-teal-500/20 hover:border-emerald-500/40 animate-slide-up group" style={{ animationDelay: '0.8s' }}>
-            <div className="bg-emerald-500/20 w-14 h-14 rounded-xl flex items-center justify-center mb-6 ml-auto border border-emerald-500/30 group-hover:bg-emerald-500/30 group-hover:scale-110 transition-all duration-300">
-              <Clock className="w-7 h-7 text-emerald-400 group-hover:text-emerald-300" />
-            </div>
-            <h3 className="text-xl font-bold text-white mb-3 text-right">
-              مرونة في الوقت
-            </h3>
-            <p className="text-teal-100/60 text-right leading-relaxed">
-              تعلّم في الوقت الذي يناسبك مع جدول مرن
-            </p>
-          </div>
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+          {features.map((feature) => {
+            const Icon = feature.icon;
+            return (
+              <div
+                key={feature.id}
+                className="rounded-2xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 animate-slide-up group"
+                style={{ 
+                  animationDelay: feature.delay,
+                  backgroundColor: '#ffffff'
+                }}
+              >
+                <div
+                  className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl flex items-center justify-center mb-4 sm:mb-6 group-hover:scale-110 transition-all duration-300"
+                  style={{ backgroundColor: feature.bgColor }}
+                >
+                  <Icon
+                    className="w-6 h-6 sm:w-7 sm:h-7 text-white transition-colors"
+                  />
+                </div>
+                <h3 className="text-lg sm:text-xl font-bold mb-2 sm:mb-3" style={{ color: '#008076' }}>
+                  {feature.title}
+                </h3>
+                <p className="leading-relaxed text-sm sm:text-base" style={{ color: '#008076', opacity: 0.8 }}>
+                  {feature.description}
+                </p>
+              </div>
+            );
+          })}
         </div>
       </div>
-      
-      <style jsx>{`
+
+      <style>{`
         @keyframes fade-in {
           from {
             opacity: 0;

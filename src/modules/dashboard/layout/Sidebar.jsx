@@ -19,7 +19,7 @@ export default function Sidebar() {
     { to: "messages", label: "مراقبة الشات", icon: ChatIcon },
     { to: "accounts", label: "إدارة الحسابات", icon: UserCogIcon },
     { to: "pinned-messages", label: "الرسائل المثبته", icon: MailIcon },
-    // { to: "operations", label: "سجل العمليات", icon: ListIcon },
+    { to: "operations", label: "سجل العمليات", icon: ListIcon },
   ];
 
   return (
